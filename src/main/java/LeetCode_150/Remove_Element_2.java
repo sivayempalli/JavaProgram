@@ -3,7 +3,7 @@ package LeetCode_150;
 public class Remove_Element_2 {
     public static void main(String[] args) {
 
-        Solution s = new Solution();
+        Remove_Element_2_Solution s = new Remove_Element_2_Solution();
         int[] nums1 = new int[]{0,1,2,2,3,0,4,2};
         int val = 2;
         int k = s.removeElement(nums1, val);
@@ -14,7 +14,7 @@ public class Remove_Element_2 {
     }
 }
 
-class Solution {
+class Remove_Element_2_Solution {
     public int removeElement(int[] nums, int val) {
 
         int n = nums.length;
