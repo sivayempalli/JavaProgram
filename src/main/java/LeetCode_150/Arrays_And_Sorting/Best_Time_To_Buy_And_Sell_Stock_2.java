@@ -12,16 +12,25 @@ public class Best_Time_To_Buy_And_Sell_Stock_2 {
 class Best_Time_To_Buy_And_Sell_Stock_Solution_2{
     public int maxProfit(int[] prices) {
         int maxProfit = 0;
+        int currentProfit = 0;
         int minBuyer = prices[0];
+        int sell = prices[0];
         int len = prices.length;
 
         for(int i=1; i<len ;i++){
-
-            int sell = prices[i];
-            if(minBuyer < sell){
-                maxProfit = Math.max(maxProfit,sell-minBuyer);
+           // sell = prices[i];
+            if( sell < prices[i]){
+                sell = prices[i];
+                currentProfit = Math.max(maxProfit,sell-minBuyer);
+            }else{
+                minBuyer = prices[i];
+                maxProfit += currentProfit;
+                currentProfit = 0;
             }
-            minBuyer = Math.min(minBuyer,sell);
+        }
+
+        if(currentProfit > 0){
+            maxProfit += currentProfit;
         }
         return maxProfit;
     }
